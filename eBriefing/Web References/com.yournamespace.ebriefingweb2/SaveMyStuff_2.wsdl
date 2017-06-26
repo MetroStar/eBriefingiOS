@@ -1,0 +1,662 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="eBriefing" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="eBriefing" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="eBriefing">
+      <s:element name="DeleteMyBooks">
+        <s:complexType />
+      </s:element>
+      <s:element name="DeleteMyBooksResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="DeleteMyBookmarks">
+        <s:complexType />
+      </s:element>
+      <s:element name="DeleteMyBookmarksResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="DeleteMyTextAnnotations">
+        <s:complexType />
+      </s:element>
+      <s:element name="DeleteMyTextAnnotationsResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="DeleteMyPenAnnotations">
+        <s:complexType />
+      </s:element>
+      <s:element name="DeleteMyPenAnnotationsResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="DeleteMyStuff">
+        <s:complexType />
+      </s:element>
+      <s:element name="DeleteMyStuffResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetMyBooks">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetMyBooksResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetMyBooksResult" type="tns:ArrayOfMyBookObj" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfMyBookObj">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="MyBookObj" nillable="true" type="tns:MyBookObj" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="MyBookObj">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="BookId" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="BookVersion" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="IsFavorite" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="ModifiedUtc" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="Removed" type="s:boolean" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="SetMyBooks">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="books" type="tns:ArrayOfMyBookObj" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SetMyBooksResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetMyBookmarks">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="bookId" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetMyBookmarksResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetMyBookmarksResult" type="tns:ArrayOfBookmarkObj" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfBookmarkObj">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="BookmarkObj" nillable="true" type="tns:BookmarkObj" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="BookmarkObj">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="BookId" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="BookVersion" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="PageId" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Value" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="ModifiedUtc" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="Removed" type="s:boolean" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="SetMyBookmarks">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="bookmarks" type="tns:ArrayOfBookmarkObj" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SetMyBookmarksResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetMyTextAnnotations">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="bookId" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetMyTextAnnotationsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetMyTextAnnotationsResult" type="tns:ArrayOfTextAnnotationObj" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfTextAnnotationObj">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="TextAnnotationObj" nillable="true" type="tns:TextAnnotationObj" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="TextAnnotationObj">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="BookId" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="BookVersion" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="PageId" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ValueUrl" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="ModifiedUtc" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="Removed" type="s:boolean" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="SetMyTextAnnotation">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="bookId" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="bookVersion" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="pageId" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="modifiedUtc" type="s:dateTime" />
+            <s:element minOccurs="0" maxOccurs="1" name="content" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SetMyTextAnnotationResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="RemoveMyTextAnnotation">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="bookId" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pageId" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="modifiedUtc" type="s:dateTime" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RemoveMyTextAnnotationResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetMyPenAnnotations">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="bookId" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="platform" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetMyPenAnnotationsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetMyPenAnnotationsResult" type="tns:ArrayOfPenAnnotationObj" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfPenAnnotationObj">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="PenAnnotationObj" nillable="true" type="tns:PenAnnotationObj" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="PenAnnotationObj">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="BookId" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="BookVersion" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="PageId" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Platform" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ImageDataUrl" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="TextDataUrl" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="ModifiedUtc" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="Removed" type="s:boolean" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="SetMyPenAnnotation">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="bookId" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="bookVersion" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="pageId" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="platform" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="modifiedUtc" type="s:dateTime" />
+            <s:element minOccurs="0" maxOccurs="1" name="textData" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="imageData" type="s:base64Binary" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SetMyPenAnnotationResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="RemoveMyPenAnnotation">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="bookId" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pageId" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="platform" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="modifiedUtc" type="s:dateTime" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RemoveMyPenAnnotationResponse">
+        <s:complexType />
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="DeleteMyBooksSoapIn">
+    <wsdl:part name="parameters" element="tns:DeleteMyBooks" />
+  </wsdl:message>
+  <wsdl:message name="DeleteMyBooksSoapOut">
+    <wsdl:part name="parameters" element="tns:DeleteMyBooksResponse" />
+  </wsdl:message>
+  <wsdl:message name="DeleteMyBookmarksSoapIn">
+    <wsdl:part name="parameters" element="tns:DeleteMyBookmarks" />
+  </wsdl:message>
+  <wsdl:message name="DeleteMyBookmarksSoapOut">
+    <wsdl:part name="parameters" element="tns:DeleteMyBookmarksResponse" />
+  </wsdl:message>
+  <wsdl:message name="DeleteMyTextAnnotationsSoapIn">
+    <wsdl:part name="parameters" element="tns:DeleteMyTextAnnotations" />
+  </wsdl:message>
+  <wsdl:message name="DeleteMyTextAnnotationsSoapOut">
+    <wsdl:part name="parameters" element="tns:DeleteMyTextAnnotationsResponse" />
+  </wsdl:message>
+  <wsdl:message name="DeleteMyPenAnnotationsSoapIn">
+    <wsdl:part name="parameters" element="tns:DeleteMyPenAnnotations" />
+  </wsdl:message>
+  <wsdl:message name="DeleteMyPenAnnotationsSoapOut">
+    <wsdl:part name="parameters" element="tns:DeleteMyPenAnnotationsResponse" />
+  </wsdl:message>
+  <wsdl:message name="DeleteMyStuffSoapIn">
+    <wsdl:part name="parameters" element="tns:DeleteMyStuff" />
+  </wsdl:message>
+  <wsdl:message name="DeleteMyStuffSoapOut">
+    <wsdl:part name="parameters" element="tns:DeleteMyStuffResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetMyBooksSoapIn">
+    <wsdl:part name="parameters" element="tns:GetMyBooks" />
+  </wsdl:message>
+  <wsdl:message name="GetMyBooksSoapOut">
+    <wsdl:part name="parameters" element="tns:GetMyBooksResponse" />
+  </wsdl:message>
+  <wsdl:message name="SetMyBooksSoapIn">
+    <wsdl:part name="parameters" element="tns:SetMyBooks" />
+  </wsdl:message>
+  <wsdl:message name="SetMyBooksSoapOut">
+    <wsdl:part name="parameters" element="tns:SetMyBooksResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetMyBookmarksSoapIn">
+    <wsdl:part name="parameters" element="tns:GetMyBookmarks" />
+  </wsdl:message>
+  <wsdl:message name="GetMyBookmarksSoapOut">
+    <wsdl:part name="parameters" element="tns:GetMyBookmarksResponse" />
+  </wsdl:message>
+  <wsdl:message name="SetMyBookmarksSoapIn">
+    <wsdl:part name="parameters" element="tns:SetMyBookmarks" />
+  </wsdl:message>
+  <wsdl:message name="SetMyBookmarksSoapOut">
+    <wsdl:part name="parameters" element="tns:SetMyBookmarksResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetMyTextAnnotationsSoapIn">
+    <wsdl:part name="parameters" element="tns:GetMyTextAnnotations" />
+  </wsdl:message>
+  <wsdl:message name="GetMyTextAnnotationsSoapOut">
+    <wsdl:part name="parameters" element="tns:GetMyTextAnnotationsResponse" />
+  </wsdl:message>
+  <wsdl:message name="SetMyTextAnnotationSoapIn">
+    <wsdl:part name="parameters" element="tns:SetMyTextAnnotation" />
+  </wsdl:message>
+  <wsdl:message name="SetMyTextAnnotationSoapOut">
+    <wsdl:part name="parameters" element="tns:SetMyTextAnnotationResponse" />
+  </wsdl:message>
+  <wsdl:message name="RemoveMyTextAnnotationSoapIn">
+    <wsdl:part name="parameters" element="tns:RemoveMyTextAnnotation" />
+  </wsdl:message>
+  <wsdl:message name="RemoveMyTextAnnotationSoapOut">
+    <wsdl:part name="parameters" element="tns:RemoveMyTextAnnotationResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetMyPenAnnotationsSoapIn">
+    <wsdl:part name="parameters" element="tns:GetMyPenAnnotations" />
+  </wsdl:message>
+  <wsdl:message name="GetMyPenAnnotationsSoapOut">
+    <wsdl:part name="parameters" element="tns:GetMyPenAnnotationsResponse" />
+  </wsdl:message>
+  <wsdl:message name="SetMyPenAnnotationSoapIn">
+    <wsdl:part name="parameters" element="tns:SetMyPenAnnotation" />
+  </wsdl:message>
+  <wsdl:message name="SetMyPenAnnotationSoapOut">
+    <wsdl:part name="parameters" element="tns:SetMyPenAnnotationResponse" />
+  </wsdl:message>
+  <wsdl:message name="RemoveMyPenAnnotationSoapIn">
+    <wsdl:part name="parameters" element="tns:RemoveMyPenAnnotation" />
+  </wsdl:message>
+  <wsdl:message name="RemoveMyPenAnnotationSoapOut">
+    <wsdl:part name="parameters" element="tns:RemoveMyPenAnnotationResponse" />
+  </wsdl:message>
+  <wsdl:portType name="SaveMyStuff_2Soap">
+    <wsdl:operation name="DeleteMyBooks">
+      <wsdl:input message="tns:DeleteMyBooksSoapIn" />
+      <wsdl:output message="tns:DeleteMyBooksSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteMyBookmarks">
+      <wsdl:input message="tns:DeleteMyBookmarksSoapIn" />
+      <wsdl:output message="tns:DeleteMyBookmarksSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteMyTextAnnotations">
+      <wsdl:input message="tns:DeleteMyTextAnnotationsSoapIn" />
+      <wsdl:output message="tns:DeleteMyTextAnnotationsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteMyPenAnnotations">
+      <wsdl:input message="tns:DeleteMyPenAnnotationsSoapIn" />
+      <wsdl:output message="tns:DeleteMyPenAnnotationsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteMyStuff">
+      <wsdl:input message="tns:DeleteMyStuffSoapIn" />
+      <wsdl:output message="tns:DeleteMyStuffSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetMyBooks">
+      <wsdl:input message="tns:GetMyBooksSoapIn" />
+      <wsdl:output message="tns:GetMyBooksSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SetMyBooks">
+      <wsdl:input message="tns:SetMyBooksSoapIn" />
+      <wsdl:output message="tns:SetMyBooksSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetMyBookmarks">
+      <wsdl:input message="tns:GetMyBookmarksSoapIn" />
+      <wsdl:output message="tns:GetMyBookmarksSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SetMyBookmarks">
+      <wsdl:input message="tns:SetMyBookmarksSoapIn" />
+      <wsdl:output message="tns:SetMyBookmarksSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetMyTextAnnotations">
+      <wsdl:input message="tns:GetMyTextAnnotationsSoapIn" />
+      <wsdl:output message="tns:GetMyTextAnnotationsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SetMyTextAnnotation">
+      <wsdl:input message="tns:SetMyTextAnnotationSoapIn" />
+      <wsdl:output message="tns:SetMyTextAnnotationSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="RemoveMyTextAnnotation">
+      <wsdl:input message="tns:RemoveMyTextAnnotationSoapIn" />
+      <wsdl:output message="tns:RemoveMyTextAnnotationSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetMyPenAnnotations">
+      <wsdl:input message="tns:GetMyPenAnnotationsSoapIn" />
+      <wsdl:output message="tns:GetMyPenAnnotationsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SetMyPenAnnotation">
+      <wsdl:input message="tns:SetMyPenAnnotationSoapIn" />
+      <wsdl:output message="tns:SetMyPenAnnotationSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="RemoveMyPenAnnotation">
+      <wsdl:input message="tns:RemoveMyPenAnnotationSoapIn" />
+      <wsdl:output message="tns:RemoveMyPenAnnotationSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="SaveMyStuff_2Soap" type="tns:SaveMyStuff_2Soap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="DeleteMyBooks">
+      <soap:operation soapAction="eBriefing/DeleteMyBooks" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteMyBookmarks">
+      <soap:operation soapAction="eBriefing/DeleteMyBookmarks" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteMyTextAnnotations">
+      <soap:operation soapAction="eBriefing/DeleteMyTextAnnotations" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteMyPenAnnotations">
+      <soap:operation soapAction="eBriefing/DeleteMyPenAnnotations" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteMyStuff">
+      <soap:operation soapAction="eBriefing/DeleteMyStuff" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMyBooks">
+      <soap:operation soapAction="eBriefing/GetMyBooks" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SetMyBooks">
+      <soap:operation soapAction="eBriefing/SetMyBooks" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMyBookmarks">
+      <soap:operation soapAction="eBriefing/GetMyBookmarks" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SetMyBookmarks">
+      <soap:operation soapAction="eBriefing/SetMyBookmarks" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMyTextAnnotations">
+      <soap:operation soapAction="eBriefing/GetMyTextAnnotations" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SetMyTextAnnotation">
+      <soap:operation soapAction="eBriefing/SetMyTextAnnotation" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RemoveMyTextAnnotation">
+      <soap:operation soapAction="eBriefing/RemoveMyTextAnnotation" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMyPenAnnotations">
+      <soap:operation soapAction="eBriefing/GetMyPenAnnotations" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SetMyPenAnnotation">
+      <soap:operation soapAction="eBriefing/SetMyPenAnnotation" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RemoveMyPenAnnotation">
+      <soap:operation soapAction="eBriefing/RemoveMyPenAnnotation" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="SaveMyStuff_2Soap12" type="tns:SaveMyStuff_2Soap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="DeleteMyBooks">
+      <soap12:operation soapAction="eBriefing/DeleteMyBooks" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteMyBookmarks">
+      <soap12:operation soapAction="eBriefing/DeleteMyBookmarks" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteMyTextAnnotations">
+      <soap12:operation soapAction="eBriefing/DeleteMyTextAnnotations" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteMyPenAnnotations">
+      <soap12:operation soapAction="eBriefing/DeleteMyPenAnnotations" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteMyStuff">
+      <soap12:operation soapAction="eBriefing/DeleteMyStuff" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMyBooks">
+      <soap12:operation soapAction="eBriefing/GetMyBooks" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SetMyBooks">
+      <soap12:operation soapAction="eBriefing/SetMyBooks" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMyBookmarks">
+      <soap12:operation soapAction="eBriefing/GetMyBookmarks" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SetMyBookmarks">
+      <soap12:operation soapAction="eBriefing/SetMyBookmarks" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMyTextAnnotations">
+      <soap12:operation soapAction="eBriefing/GetMyTextAnnotations" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SetMyTextAnnotation">
+      <soap12:operation soapAction="eBriefing/SetMyTextAnnotation" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RemoveMyTextAnnotation">
+      <soap12:operation soapAction="eBriefing/RemoveMyTextAnnotation" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMyPenAnnotations">
+      <soap12:operation soapAction="eBriefing/GetMyPenAnnotations" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SetMyPenAnnotation">
+      <soap12:operation soapAction="eBriefing/SetMyPenAnnotation" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RemoveMyPenAnnotation">
+      <soap12:operation soapAction="eBriefing/RemoveMyPenAnnotation" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="SaveMyStuff_2">
+    <wsdl:port name="SaveMyStuff_2Soap" binding="tns:SaveMyStuff_2Soap">
+      <soap:address location="http://yourEbriefingSharePointInstall/ReaderServices/SaveMyStuff_2.asmx" />
+    </wsdl:port>
+    <wsdl:port name="SaveMyStuff_2Soap12" binding="tns:SaveMyStuff_2Soap12">
+      <soap12:address location="http://yourEbriefingSharePointInstall/ReaderServices/SaveMyStuff_2.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

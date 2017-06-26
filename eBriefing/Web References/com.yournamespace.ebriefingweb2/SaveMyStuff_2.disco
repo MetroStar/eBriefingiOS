@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<discovery xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.xmlsoap.org/disco/">
+  <contractRef ref="http://yourEbriefingSharePointInstall/ReaderServices/SaveMyStuff_2.asmx?wsdl" docRef="http://yourEbriefingSharePointInstall/ReaderServices/SaveMyStuff_2.asmx" xmlns="http://schemas.xmlsoap.org/disco/scl/" />
+  <soap address="http://yourEbriefingSharePointInstall/ReaderServices/SaveMyStuff_2.asmx" xmlns:q1="eBriefing" binding="q1:SaveMyStuff_2Soap" xmlns="http://schemas.xmlsoap.org/disco/soap/" />
+  <soap address="http://yourEbriefingSharePointInstall/ReaderServices/SaveMyStuff_2.asmx" xmlns:q2="eBriefing" binding="q2:SaveMyStuff_2Soap12" xmlns="http://schemas.xmlsoap.org/disco/soap/" />
+</discovery>

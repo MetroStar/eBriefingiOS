@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="eBriefing" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="eBriefing" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="eBriefing">
+      <s:element name="SaveNotes">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="notes" type="tns:ArrayOfNote" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfNote">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Note" nillable="true" type="tns:Note" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="Note">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="NoteId" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="BookId" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="BookVersion" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="PageId" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Created" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="Modified" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="NoteText" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="IsDeleted" type="s:boolean" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="SaveNotesResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="SaveNotesResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetNotesUpdates">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="bookId" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="LastSyncDateTime" type="s:dateTime" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetNotesUpdatesResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetNotesUpdatesResult" type="tns:ArrayOfNote" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetAllNotes">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="bookId" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="startOffset" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="pageSize" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetAllNotesResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetAllNotesResult" type="tns:ArrayOfNote" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="SaveNotesSoapIn">
+    <wsdl:part name="parameters" element="tns:SaveNotes" />
+  </wsdl:message>
+  <wsdl:message name="SaveNotesSoapOut">
+    <wsdl:part name="parameters" element="tns:SaveNotesResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetNotesUpdatesSoapIn">
+    <wsdl:part name="parameters" element="tns:GetNotesUpdates" />
+  </wsdl:message>
+  <wsdl:message name="GetNotesUpdatesSoapOut">
+    <wsdl:part name="parameters" element="tns:GetNotesUpdatesResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetAllNotesSoapIn">
+    <wsdl:part name="parameters" element="tns:GetAllNotes" />
+  </wsdl:message>
+  <wsdl:message name="GetAllNotesSoapOut">
+    <wsdl:part name="parameters" element="tns:GetAllNotesResponse" />
+  </wsdl:message>
+  <wsdl:portType name="MultiNotes_1Soap">
+    <wsdl:operation name="SaveNotes">
+      <wsdl:input message="tns:SaveNotesSoapIn" />
+      <wsdl:output message="tns:SaveNotesSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetNotesUpdates">
+      <wsdl:input message="tns:GetNotesUpdatesSoapIn" />
+      <wsdl:output message="tns:GetNotesUpdatesSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllNotes">
+      <wsdl:input message="tns:GetAllNotesSoapIn" />
+      <wsdl:output message="tns:GetAllNotesSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="MultiNotes_1Soap" type="tns:MultiNotes_1Soap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="SaveNotes">
+      <soap:operation soapAction="eBriefing/SaveNotes" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetNotesUpdates">
+      <soap:operation soapAction="eBriefing/GetNotesUpdates" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllNotes">
+      <soap:operation soapAction="eBriefing/GetAllNotes" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="MultiNotes_1Soap12" type="tns:MultiNotes_1Soap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="SaveNotes">
+      <soap12:operation soapAction="eBriefing/SaveNotes" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetNotesUpdates">
+      <soap12:operation soapAction="eBriefing/GetNotesUpdates" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllNotes">
+      <soap12:operation soapAction="eBriefing/GetAllNotes" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="MultiNotes_1">
+    <wsdl:port name="MultiNotes_1Soap" binding="tns:MultiNotes_1Soap">
+      <soap:address location="https://yourEbreifingSharePointInstall/eBriefing/ReaderServices/MultiNotes_1.asmx" />
+    </wsdl:port>
+    <wsdl:port name="MultiNotes_1Soap12" binding="tns:MultiNotes_1Soap12">
+      <soap12:address location="https://yourEbreifingSharePointInstall/15/eBriefing/ReaderServices/MultiNotes_1.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

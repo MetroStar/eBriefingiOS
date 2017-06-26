@@ -1,0 +1,666 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">iPhoneSimulator</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{58AA7E38-2185-43F5-8770-38EA92A947F9}</ProjectGuid>
+    <ProjectTypeGuids>{FEACFBD2-3405-455C-9665-78FE426C6842};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <OutputType>Exe</OutputType>
+    <RootNamespace>eBriefingMobile</RootNamespace>
+    <IPhoneResourcePrefix>Resources</IPhoneResourcePrefix>
+    <AssemblyName>eBriefing</AssemblyName>
+    <TargetFrameworkIdentifier>Xamarin.iOS</TargetFrameworkIdentifier>
+    <TargetFrameworkVersion>v1.0</TargetFrameworkVersion>
+    <ReleaseVersion>3.3</ReleaseVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|iPhoneSimulator' ">
+    <DebugSymbols>True</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>False</Optimize>
+    <OutputPath>bin\iPhoneSimulator\Debug</OutputPath>
+    <DefineConstants>DEBUG;</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <ConsolePause>False</ConsolePause>
+    <MtouchDebug>True</MtouchDebug>
+    <MtouchI18n>
+    </MtouchI18n>
+    <MtouchArch>i386</MtouchArch>
+    <CodesignProvision>c03b0013-53f3-4388-a7db-900b9a8dcdb3</CodesignProvision>
+    <CodesignKey>iPhone Developer</CodesignKey>
+    <MtouchSdkVersion>9.1</MtouchSdkVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|iPhoneSimulator' ">
+    <DebugType>none</DebugType>
+    <Optimize>True</Optimize>
+    <OutputPath>bin\iPhoneSimulator\Release</OutputPath>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <ConsolePause>False</ConsolePause>
+    <MtouchI18n>
+    </MtouchI18n>
+    <MtouchArch>i386</MtouchArch>
+    <CodesignKey>iPhone Developer</CodesignKey>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|iPhone' ">
+    <DebugSymbols>True</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>False</Optimize>
+    <OutputPath>bin\iPhone\Debug</OutputPath>
+    <DefineConstants>DEBUG;</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <ConsolePause>False</ConsolePause>
+    <CodesignKey>iPhone Developer: Jonathan Green (2AYCB6AJB3)</CodesignKey>
+    <MtouchDebug>True</MtouchDebug>
+    <IpaPackageName>
+    </IpaPackageName>
+    <MtouchArch>ARMv7, ARM64</MtouchArch>
+    <CodesignProvision>0fe5a380-64db-4d96-a8b6-c33aab23be46</CodesignProvision>
+    <MtouchProfiling>true</MtouchProfiling>
+    <MtouchSdkVersion>9.1</MtouchSdkVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|iPhone' ">
+    <DebugType>none</DebugType>
+    <Optimize>True</Optimize>
+    <OutputPath>bin\iPhone\Release</OutputPath>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <ConsolePause>False</ConsolePause>
+    <CodesignKey>iPhone Developer</CodesignKey>
+    <MtouchI18n>
+    </MtouchI18n>
+    <MtouchArch>ARMv7, ARM64</MtouchArch>
+    <IpaPackageName>
+    </IpaPackageName>
+    <CodesignProvision>7d48bef1-b468-4e50-9bce-955808d5a1dc</CodesignProvision>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Ad-Hoc|iPhone' ">
+    <DebugType>none</DebugType>
+    <Optimize>True</Optimize>
+    <OutputPath>bin\iPhone\Ad-Hoc</OutputPath>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <ConsolePause>False</ConsolePause>
+    <BuildIpa>True</BuildIpa>
+    <CodesignKey>iPhone Distribution</CodesignKey>
+    <CodesignProvision>483adeae-9ec4-4a73-bcb1-399e5e0b74fd</CodesignProvision>
+    <CodesignEntitlements>Resources\Entitlements.plist</CodesignEntitlements>
+    <MtouchI18n>
+    </MtouchI18n>
+    <MtouchArch>ARMv7, ARM64</MtouchArch>
+    <IpaPackageName>
+    </IpaPackageName>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'AppStore|iPhone' ">
+    <DebugType>none</DebugType>
+    <Optimize>True</Optimize>
+    <OutputPath>bin\iPhone\AppStore</OutputPath>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <ConsolePause>False</ConsolePause>
+    <CodesignKey>iPhone Distribution</CodesignKey>
+    <CodesignProvision>5fc67c7b-bd57-4632-a3b5-bc8c8a9cc1ca</CodesignProvision>
+    <MtouchI18n>
+    </MtouchI18n>
+    <MtouchArch>ARMv7, ARM64</MtouchArch>
+    <IpaPackageName>
+    </IpaPackageName>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="MaryPopinBinding">
+      <HintPath>Libs\MaryPopinBinding.dll</HintPath>
+    </Reference>
+    <Reference Include="PaperFoldBinding">
+      <HintPath>Libs\PaperFoldBinding.dll</HintPath>
+    </Reference>
+    <Reference Include="SpinKitBinding">
+      <HintPath>Libs\SpinKitBinding.dll</HintPath>
+    </Reference>
+    <Reference Include="Xamarin.iOS" />
+    <Reference Include="LiveButtonBinding">
+      <HintPath>Libs\LiveButtonBinding.dll</HintPath>
+    </Reference>
+    <Reference Include="ASIHTTPRequestBinding">
+      <HintPath>Libs\ASIHTTPRequestBinding.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http" />
+    <Reference Include="PSPDFKit">
+      <HintPath>Libs\PSPDFKit.dll</HintPath>
+    </Reference>
+    <Reference Include="MTiRate">
+      <HintPath>..\packages\Xamarin.iRate.1.11.7\lib\Xamarin.iOS\MTiRate.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>Components\json.net-4.5.11.1\lib\ios-unified\Newtonsoft.Json.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Info.plist" />
+    <None Include="Libs\ASIHTTPRequestBinding.dll" />
+    <None Include="Libs\LiveButtonBinding.dll" />
+    <None Include="Libs\MaryPopinBinding.dll" />
+    <None Include="Libs\PaperFoldBinding.dll" />
+    <None Include="Libs\SpinKitBinding.dll" />
+    <None Include="Libs\PSPDFKit.dll" />
+    <None Include="packages.config" />
+    <None Include="Web References\com.yournamespace.eb13\MultiNotes_1.disco" />
+    <None Include="Web References\com.yournamespace.eb13\MultiNotes_1.wsdl" />
+    <None Include="Web References\com.yournamespace.eb13\Note.datasource" />
+    <None Include="Web References\com.yournamespace.eb13\Reference.map" />
+    <None Include="Web References\com.yournamespace.ebriefingweb\Core_2.disco" />
+    <None Include="Web References\com.yournamespace.ebriefingweb\Core_2.wsdl" />
+    <None Include="Web References\com.yournamespace.ebriefingweb\GetBooksReturn.datasource" />
+    <None Include="Web References\com.yournamespace.ebriefingweb\GetChaptersInBookReturn.datasource" />
+    <None Include="Web References\com.yournamespace.ebriefingweb\GetPagesInBookReturn.datasource" />
+    <None Include="Web References\com.yournamespace.ebriefingweb\Reference.map" />
+    <None Include="Web References\com.yournamespace.ebriefingweb2\BookmarkObj.datasource" />
+    <None Include="Web References\com.yournamespace.ebriefingweb2\MyBookObj.datasource" />
+    <None Include="Web References\com.yournamespace.ebriefingweb2\PenAnnotationObj.datasource" />
+    <None Include="Web References\com.yournamespace.ebriefingweb2\Reference.map" />
+    <None Include="Web References\com.yournamespace.ebriefingweb2\SaveMyStuff_2.disco" />
+    <None Include="Web References\com.yournamespace.ebriefingweb2\SaveMyStuff_2.wsdl" />
+    <None Include="Web References\com.yournamespace.ebriefingweb2\TextAnnotationObj.datasource" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Main.cs" />
+    <Compile Include="AppDelegate.cs" />
+    <Compile Include="Frameworks\eBriefingFramework\StringRef.cs" />
+    <Compile Include="SourceCodes\Setting\EnterpriseViewController.cs" />
+    <Compile Include="SourceCodes\Setting\SelectServerViewController.cs" />
+    <Compile Include="Frameworks\eBriefingFramework\KeyboardAutoScroll.cs" />
+    <Compile Include="Frameworks\eBriefingFramework\ViewExtensions.cs" />
+    <Compile Include="SourceCodes\Setting\AboutViewController.cs" />
+    <Compile Include="SourceCodes\Setting\PrivacyPolicyViewController.cs" />
+    <Compile Include="Frameworks\eBriefingFramework\Settings.cs" />
+    <Compile Include="Frameworks\MssFramework\AppFilePaths.cs" />
+    <Compile Include="Frameworks\MssFramework\CacheRecord.cs" />
+    <Compile Include="Frameworks\MssFramework\CacheRecordInternal.cs" />
+    <Compile Include="Frameworks\MssFramework\CacheSettings.cs" />
+    <Compile Include="Frameworks\MssFramework\DataQueryDispatcher.cs" />
+    <Compile Include="Frameworks\MssFramework\DataQueryDispatcherWorker.cs" />
+    <Compile Include="Frameworks\MssFramework\DownloadedFilesCache.cs" />
+    <Compile Include="Frameworks\MssFramework\FeedArticlePageParserDispatcher.cs" />
+    <Compile Include="Frameworks\MssFramework\ForceCertificatePolicy.cs" />
+    <Compile Include="Frameworks\MssFramework\HtmlTagsRemover.cs" />
+    <Compile Include="Frameworks\MssFramework\HttpDownloader.cs" />
+    <Compile Include="Frameworks\MssFramework\IFeedArticlePageParser.cs" />
+    <Compile Include="Frameworks\MssFramework\IFeedArticlePageParser2.cs" />
+    <Compile Include="Frameworks\MssFramework\Logger.cs" />
+    <Compile Include="Frameworks\MssFramework\Md5HashUtility.cs" />
+    <Compile Include="Frameworks\MssFramework\MediaGroupRecord.cs" />
+    <Compile Include="Frameworks\MssFramework\MemoryCache.cs" />
+    <Compile Include="Frameworks\MssFramework\MessageBox.cs" />
+    <Compile Include="Frameworks\MssFramework\NetworkActivityIndicatorUtility.cs" />
+    <Compile Include="Frameworks\MssFramework\PersistantObjectsStorage.cs" />
+    <Compile Include="Frameworks\MssFramework\PersistentCache.cs" />
+    <Compile Include="Frameworks\MssFramework\PersistentCache2.cs" />
+    <Compile Include="Frameworks\MssFramework\Reachability.cs" />
+    <Compile Include="Frameworks\MssFramework\RssFeedDefinition.cs" />
+    <Compile Include="Frameworks\MssFramework\RssItemRecord.cs" />
+    <Compile Include="Frameworks\MssFramework\Settings.cs" />
+    <Compile Include="Frameworks\MssFramework\SettingsBase.cs" />
+    <Compile Include="Frameworks\MssFramework\StackQueue.cs" />
+    <Compile Include="Frameworks\MssFramework\StringMapper.cs" />
+    <Compile Include="Frameworks\MssFramework\UIImageFactory.cs" />
+    <Compile Include="Frameworks\MssFramework\Utilities.cs" />
+    <Compile Include="Frameworks\MssFramework\UtilitiesXml.cs" />
+    <Compile Include="Frameworks\MssFramework\WebClient2.cs" />
+    <Compile Include="Frameworks\MssFramework\WebExceptionAlertView.cs" />
+    <Compile Include="Frameworks\MssFramework\WebExceptionTranslation.cs" />
+    <Compile Include="Frameworks\MssFramework\iOSUtilities.cs" />
+    <Compile Include="Frameworks\eBriefingFramework\AlertView.cs" />
+    <Compile Include="Frameworks\eBriefingFramework\Server.cs" />
+    <Compile Include="Frameworks\eBriefingFramework\KeychainAccessor.cs" />
+    <Compile Include="Frameworks\eBriefingFramework\PersistantStorageDatabase.cs" />
+    <Compile Include="SourceCodes\Page\PopoverPageModeController.cs" />
+    <Compile Include="SourceCodes\Page\PageViewController.cs" />
+    <Compile Include="SourceCodes\Page\CollectionDataSource.cs" />
+    <Compile Include="SourceCodes\Page\PopoverCollectionController.cs" />
+    <Compile Include="SourceCodes\Page\Annotation\AnnotationToolBar.cs" />
+    <Compile Include="SourceCodes\Page\Annotation\ColorPickerBar.cs" />
+    <Compile Include="SourceCodes\Page\Annotation\PenPickerBar.cs" />
+    <Compile Include="SourceCodes\Page\Annotation\ColorButton.cs" />
+    <Compile Include="SourceCodes\DownloadReporter.cs" />
+    <Compile Include="SourceCodes\TabBar\BaseViewController.cs" />
+    <Compile Include="SourceCodes\TabBar\Bookshelf\BookshelfBookView.cs" />
+    <Compile Include="SourceCodes\TabBar\Bookshelf\BookshelfDataSource.cs" />
+    <Compile Include="SourceCodes\TabBar\Bookshelf\BookshelfViewController.cs" />
+    <Compile Include="SourceCodes\TabBar\Library\LibraryBookView.cs" />
+    <Compile Include="SourceCodes\TabBar\Library\LibraryDataSource.cs" />
+    <Compile Include="SourceCodes\TabBar\Library\BookOverviewController.cs" />
+    <Compile Include="SourceCodes\TabBar\Library\BookOverviewDataSource.cs" />
+    <Compile Include="SourceCodes\TabBar\Bookshelf\FavoriteViewController.cs" />
+    <Compile Include="SourceCodes\TabBar\Bookshelf\UpdateViewController.cs" />
+    <Compile Include="SourceCodes\TabBar\Bookshelf\MyBooksViewController.cs" />
+    <Compile Include="Frameworks\eBriefingFramework\VersionChecker.cs" />
+    <Compile Include="Frameworks\eBriefingFramework\Authenticate.cs" />
+    <Compile Include="SourceCodes\TabBar\Library\LibraryViewController.cs" />
+    <Compile Include="SourceCodes\Others\CustomNavigationController.cs" />
+    <Compile Include="SourceCodes\Others\CustomTextView.cs" />
+    <Compile Include="SourceCodes\Others\BookInfoView.cs" />
+    <Compile Include="SourceCodes\Others\DispatcherViewController.cs" />
+    <Compile Include="SourceCodes\Others\eBriefingAppearance.cs" />
+    <Compile Include="SourceCodes\Others\LoadingView.cs" />
+    <Compile Include="SourceCodes\Others\SegmentedView.cs" />
+    <Compile Include="SourceCodes\Page\PSPDFKit\CustomPSPDFBarButtonItem.cs" />
+    <Compile Include="SourceCodes\Page\PSPDFKit\CustomPSPDFViewController.cs" />
+    <Compile Include="SourceCodes\Page\PSPDFKit\CustomPSPDFViewControllerDelegate.cs" />
+    <Compile Include="SourceCodes\Dashboard\DashboardViewController.cs" />
+    <Compile Include="SourceCodes\Dashboard\DashboardView.cs" />
+    <Compile Include="SourceCodes\Home\IntroView.cs" />
+    <Compile Include="SourceCodes\Home\IntroViewController.cs" />
+    <Compile Include="SourceCodes\Home\eBriefingViewController.cs" />
+    <Compile Include="SourceCodes\Home\PopoverSettingController.cs" />
+    <Compile Include="SourceCodes\Home\PopoverSearchController.cs" />
+    <Compile Include="Frameworks\eBriefingFramework\TimeSettings.cs" />
+    <Compile Include="SourceCodes\TabBar\Bookshelf\PopoverMenuController.cs" />
+    <Compile Include="SourceCodes\Others\CustomSearchDisplayDelegate.cs" />
+    <Compile Include="SourceCodes\Others\CustomSearchBar.cs" />
+    <Compile Include="SourceCodes\Home\PopoverSearchResultView.cs" />
+    <Compile Include="SourceCodes\Others\CustomCell.cs" />
+    <Compile Include="SourceCodes\Home\AuthenticationController.cs" />
+    <Compile Include="SourceCodes\Home\TutorialViewController.cs" />
+    <Compile Include="SourceCodes\Dashboard\DashboardDataSource.cs" />
+    <Compile Include="Frameworks\eBriefingFramework\PrintHelper.cs" />
+    <Compile Include="Frameworks\eBriefingFramework\URL.cs" />
+    <Compile Include="Frameworks\eBriefingFramework\eBriefingService.cs" />
+    <Compile Include="Frameworks\eBriefingFramework\FileDownloader.cs" />
+    <Compile Include="Frameworks\eBriefingFramework\Book\Book.cs" />
+    <Compile Include="Frameworks\eBriefingFramework\Book\BookRemover.cs" />
+    <Compile Include="Frameworks\eBriefingFramework\Book\BooksDataAccessor.cs" />
+    <Compile Include="Frameworks\eBriefingFramework\Book\BooksOnDeviceAccessor.cs" />
+    <Compile Include="Frameworks\eBriefingFramework\Book\BooksOnServerAccessor.cs" />
+    <Compile Include="Frameworks\eBriefingFramework\Book\BookUpdater.cs" />
+    <Compile Include="Frameworks\eBriefingFramework\Book\BookUpdateTimer.cs" />
+    <Compile Include="Frameworks\eBriefingFramework\Cloud\CloudSync.cs" />
+    <Compile Include="Frameworks\eBriefingFramework\Cloud\SaveMyStuff.cs" />
+    <Compile Include="Frameworks\eBriefingFramework\Cloud\SyncPushTimer.cs" />
+    <Compile Include="Frameworks\eBriefingFramework\Cloud\SkipBackup2iCloud.cs" />
+    <Compile Include="Frameworks\eBriefingFramework\Chapter\Chapter.cs" />
+    <Compile Include="Frameworks\eBriefingFramework\Chapter\ChaptersOnDeviceDataAccessor.cs" />
+    <Compile Include="Frameworks\eBriefingFramework\Annotation\Annotation.cs" />
+    <Compile Include="Frameworks\eBriefingFramework\Annotation\AnnotationItem.cs" />
+    <Compile Include="Frameworks\eBriefingFramework\Annotation\AnnotationsDataAccessor.cs" />
+    <Compile Include="Frameworks\eBriefingFramework\Note\Note.cs" />
+    <Compile Include="Frameworks\eBriefingFramework\Note\NotesDataAccessor.cs" />
+    <Compile Include="Frameworks\eBriefingFramework\Note\NoteUpdater.cs" />
+    <Compile Include="Frameworks\eBriefingFramework\Bookmark\Bookmark.cs" />
+    <Compile Include="Frameworks\eBriefingFramework\Bookmark\BookmarksDataAccessor.cs" />
+    <Compile Include="Frameworks\eBriefingFramework\Bookmark\BookmarkUpdater.cs" />
+    <Compile Include="Frameworks\eBriefingFramework\Page\Page.cs" />
+    <Compile Include="Frameworks\eBriefingFramework\Page\PagesOnDeviceDataAccessor.cs" />
+    <Compile Include="Frameworks\eBriefingFramework\ImageHelper.cs" />
+    <Compile Include="SourceCodes\Page\Note\NotePanel.cs" />
+    <Compile Include="SourceCodes\Page\Note\NoteViewController.cs" />
+    <Compile Include="SourceCodes\Page\Note\NoteView.cs" />
+    <Compile Include="SourceCodes\Page\Note\NoteOptionView.cs" />
+    <Compile Include="SourceCodes\Page\Note\NoteListView.cs" />
+    <Compile Include="SourceCodes\Dashboard\Note\NoteCellView.cs" />
+    <Compile Include="SourceCodes\Dashboard\Chapter\ChapterView.cs" />
+    <Compile Include="SourceCodes\Dashboard\Chapter\ChapterCell.cs" />
+    <Compile Include="SourceCodes\Dashboard\Thumbnail\ThumbnailCell.cs" />
+    <Compile Include="SourceCodes\Dashboard\Thumbnail\ThumbnailView.cs" />
+    <Compile Include="SourceCodes\Dashboard\Note\NoteCell.cs" />
+    <Compile Include="SourceCodes\Dashboard\DashboardLayout.cs" />
+    <Compile Include="SourceCodes\Dashboard\Note\NoteCellNoteView.cs" />
+    <Compile Include="SourceCodes\Dashboard\Note\NoteDataSource.cs" />
+    <Compile Include="SourceCodes\Dashboard\Note\NoteCollectionViewDelegateFlowLayout.cs" />
+    <Compile Include="SourceCodes\Page\Print\PrintPanel.cs" />
+    <Compile Include="SourceCodes\Page\Print\PrintDataSource.cs" />
+    <Compile Include="SourceCodes\Page\Print\PrintRangeCellView.cs" />
+    <Compile Include="SourceCodes\Dashboard\Menu\DashboardMenuView.cs" />
+    <Compile Include="SourceCodes\Dashboard\Menu\DashboardMenuItem.cs" />
+    <Compile Include="SourceCodes\Dashboard\Note\NoteFlowLayout.cs" />
+    <Compile Include="SourceCodes\Dashboard\Note\NotePageView.cs" />
+    <Compile Include="Frameworks\eBriefingFramework\PageRenderer.cs" />
+    <Compile Include="SourceCodes\Page\PSPDFKit\CustomPSPDFHUDView.cs" />
+    <Compile Include="Frameworks\SoapFramework\AsyncOperatingContext.cs" />
+    <Compile Include="Frameworks\SoapFramework\HttpClientHelper.cs" />
+    <Compile Include="Frameworks\SoapFramework\ReflectionHelper.cs" />
+    <Compile Include="Frameworks\SoapFramework\SoapHttpClientBridge.cs" />
+    <Compile Include="Frameworks\ModernHttpClient\CaptiveNetworkException.cs" />
+    <Compile Include="Frameworks\ModernHttpClient\Facades.cs" />
+    <Compile Include="Frameworks\ModernHttpClient\ProgressStreamContent.cs" />
+    <Compile Include="Frameworks\ModernHttpClient\Utility.cs" />
+    <Compile Include="Frameworks\ModernHttpClient\iOS\AsyncLock.cs" />
+    <Compile Include="Frameworks\ModernHttpClient\iOS\NSUrlSessionHandler.cs" />
+    <Compile Include="Frameworks\ModernHttpClient\iOS\NativeCookieHandler.cs" />
+    <Compile Include="SourceCodes\Home\PopoverContentSyncViewController.cs" />
+    <Compile Include="SourceCodes\Others\EmailComposer.cs" />
+    <Compile Include="Web References\com.yournamespace.eb13\Reference.cs" />
+    <Compile Include="Web References\com.yournamespace.ebriefingweb\Reference.cs" />
+    <Compile Include="Web References\com.yournamespace.ebriefingweb2\Reference.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Frameworks\" />
+    <Folder Include="Frameworks\eBriefingFramework\" />
+    <Folder Include="SourceCodes\" />
+    <Folder Include="SourceCodes\Page\" />
+    <Folder Include="SourceCodes\Setting\" />
+    <Folder Include="HTML\" />
+    <Folder Include="Frameworks\MssFramework\" />
+    <Folder Include="SourceCodes\Page\Annotation\" />
+    <Folder Include="SourceCodes\TabBar\" />
+    <Folder Include="SourceCodes\TabBar\Bookshelf\" />
+    <Folder Include="Settings.bundle\" />
+    <Folder Include="Web References\" />
+    <Folder Include="SourceCodes\Others\" />
+    <Folder Include="SourceCodes\Dashboard\" />
+    <Folder Include="SourceCodes\Home\" />
+    <Folder Include="Assets\" />
+    <Folder Include="Frameworks\eBriefingFramework\Book\" />
+    <Folder Include="Frameworks\eBriefingFramework\Cloud\" />
+    <Folder Include="Frameworks\eBriefingFramework\Chapter\" />
+    <Folder Include="Frameworks\eBriefingFramework\Annotation\" />
+    <Folder Include="Frameworks\eBriefingFramework\Note\" />
+    <Folder Include="Frameworks\eBriefingFramework\Bookmark\" />
+    <Folder Include="Frameworks\eBriefingFramework\Page\" />
+    <Folder Include="SourceCodes\Page\Note\" />
+    <Folder Include="SourceCodes\Dashboard\Note\" />
+    <Folder Include="SourceCodes\Dashboard\Chapter\" />
+    <Folder Include="SourceCodes\Dashboard\Thumbnail\" />
+    <Folder Include="SourceCodes\Page\Print\" />
+    <Folder Include="SourceCodes\Dashboard\Menu\" />
+    <Folder Include="Libs\" />
+    <Folder Include="Frameworks\SoapFramework\" />
+    <Folder Include="Frameworks\ModernHttpClient\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="HTML\privacy_policy.html" />
+    <Content Include="HTML\default.css" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Entitlements.plist" />
+    <BundleResource Include="Settings.bundle\Root.plist" />
+    <BundleResource Include="Assets\Backgrounds\home_nav.png" />
+    <BundleResource Include="Assets\Backgrounds\home_nav%402x.png" />
+    <BundleResource Include="Assets\Backgrounds\intro_0.png" />
+    <BundleResource Include="Assets\Backgrounds\intro_0%402x.png" />
+    <BundleResource Include="Assets\Backgrounds\intro_1.png" />
+    <BundleResource Include="Assets\Backgrounds\intro_1%402x.png" />
+    <BundleResource Include="Assets\Backgrounds\intro_2.png" />
+    <BundleResource Include="Assets\Backgrounds\intro_2%402x.png" />
+    <BundleResource Include="Assets\Backgrounds\intro_3.png" />
+    <BundleResource Include="Assets\Backgrounds\intro_3%402x.png" />
+    <BundleResource Include="Assets\Backgrounds\navbar.png" />
+    <BundleResource Include="Assets\Backgrounds\navbar%402x.png" />
+    <BundleResource Include="Assets\Backgrounds\page.png" />
+    <BundleResource Include="Assets\Backgrounds\page%402x.png" />
+    <BundleResource Include="Assets\Backgrounds\popout.png" />
+    <BundleResource Include="Assets\Backgrounds\popout%402x.png" />
+    <BundleResource Include="Assets\Backgrounds\toolBar.png" />
+    <BundleResource Include="Assets\Backgrounds\toolBar%402x.png" />
+    <BundleResource Include="Assets\Backgrounds\topBar.png" />
+    <BundleResource Include="Assets\Backgrounds\topBar%402x.png" />
+    <BundleResource Include="Assets\Buttons\ascending.png" />
+    <BundleResource Include="Assets\Buttons\ascending%402x.png" />
+    <BundleResource Include="Assets\Buttons\bookmark_add.png" />
+    <BundleResource Include="Assets\Buttons\bookmark_add%402x.png" />
+    <BundleResource Include="Assets\Buttons\bookmark_solid.png" />
+    <BundleResource Include="Assets\Buttons\bookmark_solid%402x.png" />
+    <BundleResource Include="Assets\Buttons\boxed.png" />
+    <BundleResource Include="Assets\Buttons\boxed%402x.png" />
+    <BundleResource Include="Assets\Buttons\color_black.png" />
+    <BundleResource Include="Assets\Buttons\color_black%402x.png" />
+    <BundleResource Include="Assets\Buttons\color_blue.png" />
+    <BundleResource Include="Assets\Buttons\color_blue%402x.png" />
+    <BundleResource Include="Assets\Buttons\color_cyan.png" />
+    <BundleResource Include="Assets\Buttons\color_cyan%402x.png" />
+    <BundleResource Include="Assets\Buttons\color_dark_green.png" />
+    <BundleResource Include="Assets\Buttons\color_dark_green%402x.png" />
+    <BundleResource Include="Assets\Buttons\color_light_green.png" />
+    <BundleResource Include="Assets\Buttons\color_light_green%402x.png" />
+    <BundleResource Include="Assets\Buttons\color_pink.png" />
+    <BundleResource Include="Assets\Buttons\color_pink%402x.png" />
+    <BundleResource Include="Assets\Buttons\color_red.png" />
+    <BundleResource Include="Assets\Buttons\color_red%402x.png" />
+    <BundleResource Include="Assets\Buttons\color_yellow.png" />
+    <BundleResource Include="Assets\Buttons\color_yellow%402x.png" />
+    <BundleResource Include="Assets\Buttons\descending.png" />
+    <BundleResource Include="Assets\Buttons\descending%402x.png" />
+    <BundleResource Include="Assets\Buttons\menu.png" />
+    <BundleResource Include="Assets\Buttons\menu%402x.png" />
+    <BundleResource Include="Assets\Buttons\pen.png" />
+    <BundleResource Include="Assets\Buttons\pen%402x.png" />
+    <BundleResource Include="Assets\Buttons\redo_pressed.png" />
+    <BundleResource Include="Assets\Buttons\redo_pressed%402x.png" />
+    <BundleResource Include="Assets\Buttons\redo_unpressed.png" />
+    <BundleResource Include="Assets\Buttons\redo_unpressed%402x.png" />
+    <BundleResource Include="Assets\Buttons\setting.png" />
+    <BundleResource Include="Assets\Buttons\setting%402x.png" />
+    <BundleResource Include="Assets\Buttons\toolBar_pressed.png" />
+    <BundleResource Include="Assets\Buttons\toolBar_pressed%402x.png" />
+    <BundleResource Include="Assets\Buttons\toolBar_unpressed.png" />
+    <BundleResource Include="Assets\Buttons\toolBar_unpressed%402x.png" />
+    <BundleResource Include="Assets\Buttons\undo_pressed.png" />
+    <BundleResource Include="Assets\Buttons\undo_pressed%402x.png" />
+    <BundleResource Include="Assets\Buttons\undo_unpressed.png" />
+    <BundleResource Include="Assets\Buttons\undo_unpressed%402x.png" />
+    <BundleResource Include="Assets\Icons\about.png" />
+    <BundleResource Include="Assets\Icons\about%402x.png" />
+    <BundleResource Include="Assets\Icons\empty_page.png" />
+    <BundleResource Include="Assets\Icons\empty_page%402x.png" />
+    <BundleResource Include="Assets\Icons\favorite.png" />
+    <BundleResource Include="Assets\Icons\favorite%402x.png" />
+    <BundleResource Include="Assets\Icons\feedback.png" />
+    <BundleResource Include="Assets\Icons\feedback%402x.png" />
+    <BundleResource Include="Assets\Icons\highlighter.png" />
+    <BundleResource Include="Assets\Icons\highlighter%402x.png" />
+    <BundleResource Include="Assets\Icons\menu_allpages.png" />
+    <BundleResource Include="Assets\Icons\menu_allpages%402x.png" />
+    <BundleResource Include="Assets\Icons\menu_annotations.png" />
+    <BundleResource Include="Assets\Icons\menu_annotations%402x.png" />
+    <BundleResource Include="Assets\Icons\menu_bookmarks.png" />
+    <BundleResource Include="Assets\Icons\menu_bookmarks%402x.png" />
+    <BundleResource Include="Assets\Icons\menu_notes.png" />
+    <BundleResource Include="Assets\Icons\menu_notes%402x.png" />
+    <BundleResource Include="Assets\Icons\menu_toc.png" />
+    <BundleResource Include="Assets\Icons\menu_toc%402x.png" />
+    <BundleResource Include="Assets\Icons\page_double.png" />
+    <BundleResource Include="Assets\Icons\page_double%402x.png" />
+    <BundleResource Include="Assets\Icons\page_single.png" />
+    <BundleResource Include="Assets\Icons\page_single%402x.png" />
+    <BundleResource Include="Assets\Icons\pen.png" />
+    <BundleResource Include="Assets\Icons\pen%402x.png" />
+    <BundleResource Include="Assets\Icons\privacy.png" />
+    <BundleResource Include="Assets\Icons\privacy%402x.png" />
+    <BundleResource Include="Assets\Icons\rate.png" />
+    <BundleResource Include="Assets\Icons\rate%402x.png" />
+    <BundleResource Include="Assets\Icons\server.png" />
+    <BundleResource Include="Assets\Icons\server%402x.png" />
+    <BundleResource Include="Assets\Icons\stat_ann_gray.png" />
+    <BundleResource Include="Assets\Icons\stat_ann_gray%402x.png" />
+    <BundleResource Include="Assets\Icons\stat_ann_white.png" />
+    <BundleResource Include="Assets\Icons\stat_ann_white%402x.png" />
+    <BundleResource Include="Assets\Icons\stat_bookmark_gray.png" />
+    <BundleResource Include="Assets\Icons\stat_bookmark_gray%402x.png" />
+    <BundleResource Include="Assets\Icons\stat_bookmark_white.png" />
+    <BundleResource Include="Assets\Icons\stat_bookmark_white%402x.png" />
+    <BundleResource Include="Assets\Icons\stat_note_gray.png" />
+    <BundleResource Include="Assets\Icons\stat_note_gray%402x.png" />
+    <BundleResource Include="Assets\Icons\stat_note_white.png" />
+    <BundleResource Include="Assets\Icons\stat_note_white%402x.png" />
+    <BundleResource Include="Assets\Icons\stat_page_gray.png" />
+    <BundleResource Include="Assets\Icons\stat_page_gray%402x.png" />
+    <BundleResource Include="Assets\Icons\stat_page_white.png" />
+    <BundleResource Include="Assets\Icons\stat_page_white%402x.png" />
+    <BundleResource Include="Assets\Icons\sync.png" />
+    <BundleResource Include="Assets\Icons\sync%402x.png" />
+    <BundleResource Include="Assets\Icons\tab0.png" />
+    <BundleResource Include="Assets\Icons\tab0%402x.png" />
+    <BundleResource Include="Assets\Icons\tab1.png" />
+    <BundleResource Include="Assets\Icons\tab1%402x.png" />
+    <BundleResource Include="Assets\Icons\tab2.png" />
+    <BundleResource Include="Assets\Icons\tab2%402x.png" />
+    <BundleResource Include="Assets\Icons\tab3.png" />
+    <BundleResource Include="Assets\Icons\tab3%402x.png" />
+    <BundleResource Include="Assets\Icons\tutorial.png" />
+    <BundleResource Include="Assets\Icons\tutorial%402x.png" />
+    <BundleResource Include="Assets\Tutorial\arrow_up_large.png" />
+    <BundleResource Include="Assets\Tutorial\arrow_up_large%402x.png" />
+    <BundleResource Include="Assets\Tutorial\arrow_up_small.png" />
+    <BundleResource Include="Assets\Tutorial\arrow_up_small%402x.png" />
+    <BundleResource Include="Assets\Tutorial\circleButton_large.png" />
+    <BundleResource Include="Assets\Tutorial\circleButton_large%402x.png" />
+    <BundleResource Include="Assets\Tutorial\circleButton_large_pressed.png" />
+    <BundleResource Include="Assets\Tutorial\circleButton_large_pressed%402x.png" />
+    <BundleResource Include="Assets\Tutorial\circleButton_small.png" />
+    <BundleResource Include="Assets\Tutorial\circleButton_small%402x.png" />
+    <BundleResource Include="Assets\Tutorial\circleButton_small_pressed.png" />
+    <BundleResource Include="Assets\Tutorial\circleButton_small_pressed%402x.png" />
+    <BundleResource Include="Assets\Tutorial\closeButton.png" />
+    <BundleResource Include="Assets\Tutorial\closeButton%402x.png" />
+    <BundleResource Include="Assets\Tutorial\closeButton_pressed.png" />
+    <BundleResource Include="Assets\Tutorial\closeButton_pressed%402x.png" />
+    <BundleResource Include="Assets\Tutorial\slider_on.png" />
+    <BundleResource Include="Assets\Tutorial\slider_on%402x.png" />
+    <BundleResource Include="Assets\Tutorial\Landscape\panel.png" />
+    <BundleResource Include="Assets\Tutorial\Landscape\panel%402x.png" />
+    <BundleResource Include="Assets\Tutorial\Landscape\tutorial_0.png" />
+    <BundleResource Include="Assets\Tutorial\Landscape\tutorial_0%402x.png" />
+    <BundleResource Include="Assets\Tutorial\Landscape\tutorial_1.png" />
+    <BundleResource Include="Assets\Tutorial\Landscape\tutorial_1%402x.png" />
+    <BundleResource Include="Assets\Tutorial\Landscape\tutorial_1_0.png" />
+    <BundleResource Include="Assets\Tutorial\Landscape\tutorial_1_0%402x.png" />
+    <BundleResource Include="Assets\Tutorial\Landscape\tutorial_1_1.png" />
+    <BundleResource Include="Assets\Tutorial\Landscape\tutorial_1_1%402x.png" />
+    <BundleResource Include="Assets\Tutorial\Landscape\tutorial_2.png" />
+    <BundleResource Include="Assets\Tutorial\Landscape\tutorial_2%402x.png" />
+    <BundleResource Include="Assets\Tutorial\Landscape\tutorial_2_0.png" />
+    <BundleResource Include="Assets\Tutorial\Landscape\tutorial_2_0%402x.png" />
+    <BundleResource Include="Assets\Tutorial\Landscape\tutorial_2_1.png" />
+    <BundleResource Include="Assets\Tutorial\Landscape\tutorial_2_1%402x.png" />
+    <BundleResource Include="Assets\Tutorial\Landscape\tutorial_3.png" />
+    <BundleResource Include="Assets\Tutorial\Landscape\tutorial_3%402x.png" />
+    <BundleResource Include="Assets\Tutorial\Landscape\tutorial_3_0.png" />
+    <BundleResource Include="Assets\Tutorial\Landscape\tutorial_3_0%402x.png" />
+    <BundleResource Include="Assets\Tutorial\Landscape\tutorial_3_1.png" />
+    <BundleResource Include="Assets\Tutorial\Landscape\tutorial_3_1%402x.png" />
+    <BundleResource Include="Assets\Tutorial\Landscape\tutorial_4.png" />
+    <BundleResource Include="Assets\Tutorial\Landscape\tutorial_4%402x.png" />
+    <BundleResource Include="Assets\Tutorial\Landscape\tutorial_4_0.png" />
+    <BundleResource Include="Assets\Tutorial\Landscape\tutorial_4_0%402x.png" />
+    <BundleResource Include="Assets\Tutorial\Portrait\panel.png" />
+    <BundleResource Include="Assets\Tutorial\Portrait\panel%402x.png" />
+    <BundleResource Include="Assets\Tutorial\Portrait\tutorial_0.png" />
+    <BundleResource Include="Assets\Tutorial\Portrait\tutorial_0%402x.png" />
+    <BundleResource Include="Assets\Tutorial\Portrait\tutorial_1.png" />
+    <BundleResource Include="Assets\Tutorial\Portrait\tutorial_1%402x.png" />
+    <BundleResource Include="Assets\Tutorial\Portrait\tutorial_1_0.png" />
+    <BundleResource Include="Assets\Tutorial\Portrait\tutorial_1_0%402x.png" />
+    <BundleResource Include="Assets\Tutorial\Portrait\tutorial_1_1.png" />
+    <BundleResource Include="Assets\Tutorial\Portrait\tutorial_1_1%402x.png" />
+    <BundleResource Include="Assets\Tutorial\Portrait\tutorial_2.png" />
+    <BundleResource Include="Assets\Tutorial\Portrait\tutorial_2%402x.png" />
+    <BundleResource Include="Assets\Tutorial\Portrait\tutorial_2_0.png" />
+    <BundleResource Include="Assets\Tutorial\Portrait\tutorial_2_0%402x.png" />
+    <BundleResource Include="Assets\Tutorial\Portrait\tutorial_2_1.png" />
+    <BundleResource Include="Assets\Tutorial\Portrait\tutorial_2_1%402x.png" />
+    <BundleResource Include="Assets\Tutorial\Portrait\tutorial_3.png" />
+    <BundleResource Include="Assets\Tutorial\Portrait\tutorial_3%402x.png" />
+    <BundleResource Include="Assets\Tutorial\Portrait\tutorial_3_0.png" />
+    <BundleResource Include="Assets\Tutorial\Portrait\tutorial_3_0%402x.png" />
+    <BundleResource Include="Assets\Tutorial\Portrait\tutorial_3_1.png" />
+    <BundleResource Include="Assets\Tutorial\Portrait\tutorial_3_1%402x.png" />
+    <BundleResource Include="Assets\Tutorial\Portrait\tutorial_4.png" />
+    <BundleResource Include="Assets\Tutorial\Portrait\tutorial_4%402x.png" />
+    <BundleResource Include="Assets\Tutorial\Portrait\tutorial_4_0.png" />
+    <BundleResource Include="Assets\Tutorial\Portrait\tutorial_4_0%402x.png" />
+    <BundleResource Include="Assets\Backgrounds\background_landscape.png" />
+    <BundleResource Include="Assets\Backgrounds\background_landscape%402x.png" />
+    <BundleResource Include="Assets\Backgrounds\background_portrait.png" />
+    <BundleResource Include="Assets\Backgrounds\background_portrait%402x.png" />
+    <BundleResource Include="Assets\Backgrounds\shadow.png" />
+    <BundleResource Include="Assets\Backgrounds\shadow%402x.png" />
+    <BundleResource Include="Assets\Buttons\demo.png" />
+    <BundleResource Include="Assets\Buttons\demo%402x.png" />
+    <BundleResource Include="Assets\Buttons\enterprise.png" />
+    <BundleResource Include="Assets\Buttons\enterprise%402x.png" />
+    <BundleResource Include="Assets\Icons\new.png" />
+    <BundleResource Include="Assets\Icons\new%402x.png" />
+    <BundleResource Include="Assets\Backgrounds\help_landscape.png" />
+    <BundleResource Include="Assets\Backgrounds\help_landscape%402x.png" />
+    <BundleResource Include="Assets\Backgrounds\help_portrait.png" />
+    <BundleResource Include="Assets\Backgrounds\help_portrait%402x.png" />
+    <BundleResource Include="Assets\Buttons\green_filled.png" />
+    <BundleResource Include="Assets\Buttons\green_filled%402x.png" />
+    <BundleResource Include="Assets\Buttons\green_unfilled.png" />
+    <BundleResource Include="Assets\Buttons\green_unfilled%402x.png" />
+    <BundleResource Include="Assets\Buttons\white_unfilled.png" />
+    <BundleResource Include="Assets\Buttons\white_unfilled%402x.png" />
+    <BundleResource Include="Assets\Buttons\gray_unfilled.png" />
+    <BundleResource Include="Assets\Buttons\gray_unfilled%402x.png" />
+    <BundleResource Include="Assets\Buttons\hamburger.png" />
+    <BundleResource Include="Assets\Buttons\hamburger%402x.png" />
+    <BundleResource Include="Assets\Buttons\grabber_pressed.png" />
+    <BundleResource Include="Assets\Buttons\grabber_pressed%402x.png" />
+    <BundleResource Include="Assets\Buttons\grabber_unpressed.png" />
+    <BundleResource Include="Assets\Buttons\grabber_unpressed%402x.png" />
+    <BundleResource Include="Assets\Buttons\note.png" />
+    <BundleResource Include="Assets\Icons\endPageNote.png" />
+    <BundleResource Include="Assets\Icons\endPageNote%402x.png" />
+    <BundleResource Include="Assets\Buttons\page_double.png" />
+    <BundleResource Include="Assets\Buttons\page_double%402x.png" />
+    <BundleResource Include="Assets\Icons\checkmark.png" />
+    <BundleResource Include="Assets\Icons\checkmark%402x.png" />
+    <BundleResource Include="Assets\Buttons\page_single.png" />
+    <BundleResource Include="Assets\Buttons\page_single%402x.png" />
+    <BundleResource Include="Assets\Buttons\add_note.png" />
+    <BundleResource Include="Assets\Buttons\add_note%402x.png" />
+    <BundleResource Include="Assets\Buttons\note%402x.png" />
+    <BundleResource Include="Assets\Buttons\icn_contentSyncError.png" />
+    <BundleResource Include="Assets\Buttons\icn_contentSyncError%402x.png" />
+    <BundleResource Include="Assets\Buttons\icn_contentSyncError%403x.png" />
+    <BundleResource Include="Assets\Buttons\print.png" />
+    <BundleResource Include="Assets\Buttons\print%402x.png" />
+    <BundleResource Include="Assets\Buttons\print%403x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <WebReferenceUrl Include="https://ebriefing.staging.metrostarsystems.com/sites/Mobile/_layouts/eBriefing/ReaderServices/SaveMyStuff_2.asmx">
+      <UrlBehavior>Dynamic</UrlBehavior>
+      <RelPath>Web References\ebriefing.staging.metrostarsystems.com.savemystuff</RelPath>
+      <UpdateFromURL>https://ebriefing.staging.metrostarsystems.com/sites/Mobile/_layouts/eBriefing/ReaderServices/SaveMyStuff_2.asmx</UpdateFromURL>
+    </WebReferenceUrl>
+  </ItemGroup>
+  <ItemGroup>
+    <WebReferences Include="Web References" />
+  </ItemGroup>
+  <ItemGroup>
+    <ImageAsset Include="Resources\Images.xcassets\AppIcons.appiconset\Contents.json" />
+    <ImageAsset Include="Resources\Images.xcassets\LaunchImage.launchimage\Contents.json" />
+    <ImageAsset Include="Resources\Images.xcassets\LaunchImage.launchimage\Default-Portrait%402x.png" />
+    <ImageAsset Include="Resources\Images.xcassets\LaunchImage.launchimage\Default-Landscape%402x.png" />
+    <ImageAsset Include="Resources\Images.xcassets\AppIcons.appiconset\29.png" />
+    <ImageAsset Include="Resources\Images.xcassets\AppIcons.appiconset\40.png" />
+    <ImageAsset Include="Resources\Images.xcassets\AppIcons.appiconset\58.png" />
+    <ImageAsset Include="Resources\Images.xcassets\AppIcons.appiconset\76.png" />
+    <ImageAsset Include="Resources\Images.xcassets\AppIcons.appiconset\80.png" />
+    <ImageAsset Include="Resources\Images.xcassets\AppIcons.appiconset\152.png" />
+    <ImageAsset Include="Resources\Images.xcassets\LaunchImage.launchimage\Default-Portrait.png" />
+    <ImageAsset Include="Resources\Images.xcassets\LaunchImage.launchimage\Default-Landscape.png" />
+  </ItemGroup>
+  <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
+  <ItemGroup>
+    <XamarinComponentReference Include="json.net">
+      <Version>4.5.11.1</Version>
+      <Visible>False</Visible>
+    </XamarinComponentReference>
+    <XamarinComponentReference Include="irate">
+      <Version>1.11.7</Version>
+      <Visible>False</Visible>
+    </XamarinComponentReference>
+  </ItemGroup>
+  <Target Name="_CompileITunesMetadata" DependsOnTargets="_DetectSdkLocations;_DetectAppManifest;_GenerateBundleName;_CompileAppManifest">
+    <Message Text="Skipping CompileITunesMetadata task to prevent inclusion of iTunesMetadata.plist in the IPA" />
+  </Target>
+</Project>

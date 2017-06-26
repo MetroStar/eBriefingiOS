@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="eBriefing" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="eBriefing" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="eBriefing">
+      <s:element name="GetServerInfo">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetServerInfoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetServerInfoResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="GetServerInfoSoapIn">
+    <wsdl:part name="parameters" element="tns:GetServerInfo" />
+  </wsdl:message>
+  <wsdl:message name="GetServerInfoSoapOut">
+    <wsdl:part name="parameters" element="tns:GetServerInfoResponse" />
+  </wsdl:message>
+  <wsdl:portType name="ServerInfoSoap">
+    <wsdl:operation name="GetServerInfo">
+      <wsdl:input message="tns:GetServerInfoSoapIn" />
+      <wsdl:output message="tns:GetServerInfoSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="ServerInfoSoap" type="tns:ServerInfoSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetServerInfo">
+      <soap:operation soapAction="eBriefing/GetServerInfo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="ServerInfoSoap12" type="tns:ServerInfoSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetServerInfo">
+      <soap12:operation soapAction="eBriefing/GetServerInfo" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="ServerInfo">
+    <wsdl:port name="ServerInfoSoap" binding="tns:ServerInfoSoap">
+      <soap:address location="http://yourEbriefingSharePointInstall/ServerInfo.asmx" />
+    </wsdl:port>
+    <wsdl:port name="ServerInfoSoap12" binding="tns:ServerInfoSoap12">
+      <soap12:address location="http://yourEbriefingSharePointInstall/ServerInfo.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
